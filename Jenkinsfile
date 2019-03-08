@@ -46,8 +46,19 @@ pipeline {
                     cd ./docker_riot
 					chmod +x copy.sh
                     docker build . -t  "softtek:riot-admincontenido"
-                    docker run --name prototipo_admincontenido -p 172.16.68.31:1337:1337/tcp -v v-rdl-admincontenido:/rdl/input/src-gen softtek:riot-admincontenido
+                    docker run -d --name prototipo_admincontenido -p 172.16.68.31:1337:1337/tcp -v v-rdl-admincontenido:/rdl/input/src-gen softtek:riot-admincontenido
                 '''
+            }
+        }
+		stage('Screenshots'){
+			agent any
+            steps{
+                sh '''
+                    cd ./docker_screenshots
+					chmod +x copy.sh
+                    docker build . -t  "softtek:screenshots-admincontenido"
+                    docker run --name screenshots_admincontenido -v v-rdl-admincontenido:/rdl/input/src-gen -v v-screenshots-admincontenido:/cypress/screenshots softtek:screenshots-admincontenido
+				'''
             }
         }
     }
