@@ -12,17 +12,20 @@ pipeline {
             steps{
                 sh'''
 					docker stop prototipo_admincontenido
+					docker stop pdf_admincontenido
 					docker rm rdl_admincontenido
 					docker rm prototipo_admincontenido
 					docker rm screenshots_admincontenido
 					docker rm plantuml_admincontenido
 					docker rm latex_admincontenido
+					docker rm pdf_admincontenido
 					
 					docker rmi softtek:rdl-admincontenido
 					docker rmi softtek:riot-admincontenido
 					docker rmi softtek:screenshots-admincontenido
 					docker rmi softtek:plantuml-admincontenido
 					docker rmi softtek:latex-admincontenido
+					docker rmi softtek:pdf-admincontenido
 
 					docker volume rm v-rdl-admincontenido
                     docker volume rm v-screenshots-admincontenido
