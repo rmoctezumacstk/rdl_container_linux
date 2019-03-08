@@ -40,7 +40,7 @@ pipeline {
 		stage('Prototype'){
 			agent any
             steps{
-                powershell '''
+                sh '''
                     cd ./docker_riot
                     docker build . -t  "softtek:riot-admincontenido"
                     docker run -d --name prototipo_admincontenido -p 172.16.68.31:1337:1337/tcp -v v-rdl-admincontenido:/rdl/input/src-gen softtek:riot-admincontenido
