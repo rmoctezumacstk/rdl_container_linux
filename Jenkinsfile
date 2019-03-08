@@ -11,11 +11,11 @@ pipeline {
 		agent any
 			steps{
 				sh'''
-					docker rm rdl_admincontenido > /dev/null 2>&1
-					docker rm prototipo_admincontenido > /dev/null 2>&1
-					docker rm screenshots_admincontenido > /dev/null 2>&1
-					docker rm plantuml_admincontenido > /dev/null 2>&1
-					docker rm latex_admincontenido > /dev/null 2>&1
+					docker rm rdl_admincontenido > 2>&1
+					docker rm prototipo_admincontenido > 2>&1
+					docker rm screenshots_admincontenido > 2>&1
+					docker rm plantuml_admincontenido > 2>&1
+					docker rm latex_admincontenido > 2>&1
 					
 					docker rmi softtek:rdl-admincontenido > /dev/null 2>&1
 					docker rmi softtek:riot-admincontenido > /dev/null 2>&1
