@@ -64,5 +64,16 @@ pipeline {
 				'''
             }
         }
+		stage('UML images'){
+			agent any
+            steps{
+                sh '''
+                    cd ./docker-plantuml
+					chmod +x copy.sh
+                    docker build . -t  "softtek:plantuml-admincontenido"
+                    docker run --name plantuml_admincontenido -v v-rdl-admincontenido:/rdl/input/src-gen -v v-uml-admincontenido:/plantuml softtek:plantuml-admincontenido
+                '''
+            }
+        }
     }
 }
