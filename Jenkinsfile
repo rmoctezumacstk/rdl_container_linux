@@ -11,7 +11,6 @@ pipeline {
 		agent any
 			steps{
 				sh'''
-					docker stop prototipo_admincontenido > /dev/null 2>&1
 					docker rm rdl_admincontenido > /dev/null 2>&1
 					docker rm prototipo_admincontenido > /dev/null 2>&1
 					docker rm screenshots_admincontenido > /dev/null 2>&1
