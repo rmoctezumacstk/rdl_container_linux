@@ -11,12 +11,6 @@ pipeline {
 			agent any
             steps{
                 sh'''
-					docker rm rdl_admincontenido
-					docker rm prototipo_admincontenido
-					
-					docker rmi softtek:rdl-admincontenido
-					docker rmi softtek:riot-admincontenido
-
 					docker volume rm v-rdl-admincontenido
                     docker volume rm v-screenshots-admincontenido
                     docker volume rm v-uml-admincontenido
@@ -45,7 +39,7 @@ pipeline {
                 sh '''
                     cd ./docker_riot
                     docker build . -t  "softtek:riot-admincontenido"
-                    docker run -d --name prototipo_admincontenido -p 172.16.68.31:1337:1337/tcp -v v-rdl-admincontenido:/rdl/input/src-gen softtek:riot-admincontenido
+                    docker run --name prototipo_admincontenido -p 172.16.68.31:1337:1337/tcp -v v-rdl-admincontenido:/rdl/input/src-gen softtek:riot-admincontenido
                 '''
             }
         }
