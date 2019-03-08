@@ -4,4 +4,4 @@ COPY . /src
 
 WORKDIR /src
 
-CMD ["./copy.sh"]
+CMD ["chmod", "+x", "./copy.sh;", "./copy.sh"]
