@@ -12,6 +12,4 @@ ls -l
 sed -i 's/localhost/172\.16\.68\.31/g' *-Screenshots.js
 echo "Running Cypress"
 cd /
-ls -l
-ping -c 4 172.16.68.31
 $(npm bin)/cypress run -s './cypress/integration/*-Screenshots.js'
