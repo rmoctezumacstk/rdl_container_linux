@@ -11,11 +11,6 @@ pipeline {
 			agent any
             steps{
                 sh'''
-					docker volume rm v-rdl-admincontenido
-                    docker volume rm v-screenshots-admincontenido
-                    docker volume rm v-uml-admincontenido
-					docker volume rm v-pdf-admincontenido
-					
                     docker volume create --name v-rdl-admincontenido
                     docker volume create --name v-screenshots-admincontenido
                     docker volume create --name v-uml-admincontenido
