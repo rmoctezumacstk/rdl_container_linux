@@ -12,8 +12,10 @@ pipeline {
             steps{
                 sh'''
 					docker rm rdl_admincontenido
+					docker rm prototipo_admincontenido
 					
 					docker rmi softtek:rdl-admincontenido
+					docker rmi softtek:riot-admincontenido
 
 					docker volume rm v-rdl-admincontenido
                     docker volume rm v-screenshots-admincontenido
