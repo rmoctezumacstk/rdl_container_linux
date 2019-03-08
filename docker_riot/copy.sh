@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 rm -rf ./src/components/app
 mkdir ./src/components/app
