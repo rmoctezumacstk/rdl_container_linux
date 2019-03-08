@@ -14,11 +14,9 @@ pipeline {
 					docker stop prototipo_admincontenido
 					docker rm rdl_admincontenido
 					docker rm prototipo_admincontenido
-					docker rm screenshots_admincontenido
 					
 					docker rmi softtek:rdl-admincontenido
 					docker rmi softtek:riot-admincontenido
-					docker rmi softtek:screenshots-admincontenido
 
 					docker volume rm v-rdl-admincontenido
                     docker volume rm v-screenshots-admincontenido
