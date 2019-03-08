@@ -11,9 +11,6 @@ pipeline {
 			agent any
             steps{
                 sh'''
-					docker rm rdl_admincontenido
-					docker rm prototipo_admincontenido
-					
 					docker rmi softtek:rdl-admincontenido
 					docker rmi softtek:riot-admincontenido
 
