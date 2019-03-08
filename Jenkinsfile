@@ -11,6 +11,11 @@ pipeline {
 			agent any
             steps{
                 sh'''
+					docker volume rm v-rdl-admincontenido
+                    docker volume rm v-screenshots-admincontenido
+                    docker volume rm v-uml-admincontenido
+					docker volume rm v-pdf-admincontenido
+					
                     docker volume create --name v-rdl-admincontenido
                     docker volume create --name v-screenshots-admincontenido
                     docker volume create --name v-uml-admincontenido
@@ -21,7 +26,7 @@ pipeline {
 		stage('RDL Generator'){
 			agent any
             steps{
-                powershell '''
+                sh '''
                     cd ./docker_rdl
                     docker build . -t "softtek:rdl-admincontenido"
                     docker run --name rdl_admincontenido -v v-rdl-admincontenido:/rdl/input/src-gen softtek:rdl-admincontenido
