@@ -16,11 +16,13 @@ pipeline {
 					docker rm prototipo_admincontenido
 					docker rm screenshots_admincontenido
 					docker rm plantuml_admincontenido
+					docker rm latex_admincontenido
 					
 					docker rmi softtek:rdl-admincontenido
 					docker rmi softtek:riot-admincontenido
 					docker rmi softtek:screenshots-admincontenido
 					docker rmi softtek:plantuml-admincontenido
+					docker rmi softtek:latex-admincontenido
 
 					docker volume rm v-rdl-admincontenido
                     docker volume rm v-screenshots-admincontenido
@@ -85,6 +87,17 @@ pipeline {
 					chmod +x copy.sh
                     docker build . -t  "softtek:latex-admincontenido"
                     docker run --name latex_admincontenido -v v-rdl-admincontenido:/rdl/input/src-gen -v v-screenshots-admincontenido:/cypress/screenshots -v v-uml-admincontenido:/plantuml -v v-pdf-admincontenido:/pdf softtek:latex-admincontenido
+                '''
+            }
+        }
+		stage('Publish PDF'){
+			agent any
+            steps{
+                sh '''
+					cd ./docker_pdf
+					docker cp latex_admincontenido:/pdf/functional-spec.pdf ./
+                    docker build . -t softtek:pdf-admincontenido
+                    docker run --name pdf_admincontenido -d -p 172.16.68.31:4200:80 softtek:pdf-admincontenido
                 '''
             }
         }
