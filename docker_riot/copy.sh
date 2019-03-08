@@ -1,4 +1,4 @@
-#!/usr/bin/env sh
+#!/bin/bash
 
 rm -rf ./src/components/app
 mkdir ./src/components/app
