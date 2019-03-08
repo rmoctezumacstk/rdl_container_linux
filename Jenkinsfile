@@ -14,7 +14,7 @@ pipeline {
 					docker rm rdl_admincontenido
 					
 					docker rmi softtek:rdl-admincontenido
-				
+
 					docker volume rm v-rdl-admincontenido
                     docker volume rm v-screenshots-admincontenido
                     docker volume rm v-uml-admincontenido
