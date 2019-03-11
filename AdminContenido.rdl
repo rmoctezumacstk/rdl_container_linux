@@ -60,7 +60,7 @@ module AdminContenido {
 	  	
 	  	
 	   field DescipcionOpcion: Text {
-       		glossary (name: "Descripcion de la opción", description: "Descripciones de las opciones")
+       		glossary (name: "Descripcion opción", description: "Descripciones de las opciones")
       		constraints (unique: false, required: true)
        		widget (exposed_filter: true, display_result: true)
        		data (domain: "App::name")
@@ -69,7 +69,7 @@ module AdminContenido {
        		}
        	
 		field Puntos: Integer {
-       		glossary (name: "Puntos", description: "Puntos de las opciones")
+       		glossary (name: "Puntos opción", description: "Puntos de las opciones")
       		constraints (unique: false, required: true)
        		widget (exposed_filter: true, display_result: true)
        		data (domain: "Lorem::code5")
