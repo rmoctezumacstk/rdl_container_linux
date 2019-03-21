@@ -11,8 +11,6 @@ pipeline {
 			agent any
             steps{
                 sh'''
-					docker stop prototipo_admincontenido
-					docker stop pdf_admincontenido
 					docker rm rdl_admincontenido
 					docker rm prototipo_admincontenido
 					docker rm screenshots_admincontenido
